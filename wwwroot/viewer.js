@@ -1,6 +1,6 @@
 /// import * as Autodesk from "@types/forge-viewer";
 
-async function getAccessToken(callback) {
+export async function getAccessToken(callback) {
     try {
         const resp = await fetch('/api/auth/token');
         if (!resp.ok) {
@@ -31,7 +31,13 @@ export function initViewer(container) {
 export function loadModel(viewer, urn) {
     return new Promise(function (resolve, reject) {
         function onDocumentLoadSuccess(doc) {
-            resolve(viewer.loadDocumentNode(doc, doc.getRoot().getDefaultGeometry()));
+            viewer.loadDocumentNode(doc, doc.getRoot().getDefaultGeometry()).then(function (model) {
+                // Resolve with the loaded model object
+                console.log(model.getInstanceTree());
+                resolve(model);
+            }).catch(function (error) {
+                reject(error);
+            });
         }
         function onDocumentLoadFailure(code, message, errors) {
             reject({ code, message, errors });
