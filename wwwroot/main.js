@@ -16,10 +16,21 @@ initViewer(document.getElementById('preview')).then(viewer => {
 
     getAccessToken(handleAccessToken);
 
-    // getAllDbIds(viewer);
+    const accessToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjY0RE9XMnJoOE9tbjNpdk1NU0xlNGQ2VHEwUV9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiXSwiY2xpZW50X2lkIjoiSUE0MGtxV09hNUVVU29iWUpORVJPQVFKQWJhNTV0ck1oblhzVWhlYzNKbEtsdGVLIiwiaXNzIjoiaHR0cHM6Ly9kZXZlbG9wZXIuYXBpLmF1dG9kZXNrLmNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0b2Rlc2suY29tIiwianRpIjoiQUpQWkI2cmdyTTVWdXRyZ1VPNkVlaHprZzNnQUFUdWFlcjZXTHB2M1RLZW1MQkwwSlVsTmtXOWhnR1hpTmR0eSIsImV4cCI6MTcyMzA0Mjc4NH0.UIrchXe5q6bfqU7tPwd91kq0-39qmRAUdFyu-g6RGwjE4CA37DOi7BcrOy7-qAXjXSuv0BbIzcGTdlBrf6QFG_St5B_Wox4rltLdwZaVnuIShIAYSFCuQpuRDhn1qRH9qrCHEwVhZgPdFeWtJmwBZCXtAyo2I415FTam0gBvyJb_9tQ2Zt9merOLTrJ3GSzFWu4AW01ayCMCWZg8TmIU68COKeHwTBZitgsAnOriIKznFK0eme6m7OR4PmYFxPDSad8a2chfAAvureDVvZN6kM7g4Qprvs1j0KYZwBoS-sm8ADud2dXYPy1KQJupG79GCWeClWqYOqTNJ0Z3Hr0nhQ';
+    const urnOfSourceFile = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9DQUQtMTAyMTctUmV2MDEtQmxlbmRlciUyMDMuMCUyMEFzc2VtYmx5LlNURVA';
+    const guidOfViewable = 'aa85aad6-c480-4a35-9cbf-4cf5994a25ba';
 
-    // getAllInstanceTreeNodes(viewer)
-    // getChildren(viewer);
+    getProperties(accessToken, urnOfSourceFile, guidOfViewable)
+    .then(properties => {
+        console.log('Properties:', properties);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    
+
+   
 
    
 });
@@ -131,6 +142,9 @@ loadModel(viewer, urn).then(function (model) {
 
     const accessToken = 'your_access_token';
 
+    const txt1 = "OTS-10018"
+    searchAndHighlight(viewer, txt1);
+
     
     
    
@@ -159,13 +173,17 @@ function handleAccessToken(accessToken, expiresIn) {
 }
 
 async function fetchModelMetadata(accessToken) {
-
     const urn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6a3FnbHJmdG9uY29jeXVhcGtpc3M3dGdyYmd3dm14bXRxODRnbnIzeXVqcXhnenB2LWJhc2ljLWFwcC9DQUQtMTAyMTctUmV2MDEtQmxlbmRlciUyMDMuMCUyMEFzc2VtYmx5LlNURVA';
-    const modelGuid = '878e6b97-35e9-47b4-8a9c-64b5d3b5376a';
+    const modelGuid = 'aa85aad6-c480-4a35-9cbf-4cf5994a25ba';
 
-    const url = `https://developer.api.autodesk.com/modelderivative/v2/designdata/${urn}/metadata/${modelGuid}`;
+    // URL encode the urn
+    const encodedUrn = encodeURIComponent(urn);
+    console.log("Urn safe: ", encodedUrn);
 
-    
+    const acx = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjY0RE9XMnJoOE9tbjNpdk1NU0xlNGQ2VHEwUV9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOndyaXRlIiwiZGF0YTpyZWFkIiwiYnVja2V0OmNyZWF0ZSIsImJ1Y2tldDpkZWxldGUiXSwiY2xpZW50X2lkIjoia3FHbHJmdG9OQ09DeXVBcGtJc1M3VEdyQkdXVm1YTXRxODRnbnIzeVVqUVhnWnB2IiwiaXNzIjoiaHR0cHM6Ly9kZXZlbG9wZXIuYXBpLmF1dG9kZXNrLmNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0b2Rlc2suY29tIiwianRpIjoiekpqQUdGakhxMVA2WnRGU043VlZ6aXE2RTB3MnplUWdNUmlaRDJ3RkVxenZBTzRhZ2tud2paeTB6OXFHS3JRQSIsImV4cCI6MTcyMzA0ODg5Mn0.m8VXMdjmUIRCdt7QYoI6jOnnjZEqmhkg5mftbJ5gUnLTy3zf1UqUgfGhKoAUQDcKzDNZWhTmgFVJklf445OR7AZPwc5NFbcv42hrTpX5rLzT3NcUYZlDNgLY0rW5V2neYTOK1Du_h_s537i5EpJDTgUpXRvlbigmtMhi268ND0CJ29R28PhfNkT0BJnT5Bjvmz6jOw4w5WW7bSO8h-ngJtN2e-vSiW5mLk12pYbMRWmahCLuKRe6uFWSSWngtDyscrR-dg0BG9MGUyUfyZ4S1b5m35le31SOsSdppJi1ZEUXYi1DUeazTAAGaxtgIeJwUOOyj7dzLxZgbsT2JMy2uw";
+
+    const url = `https://developer.api.autodesk.com/modelderivative/v2/designdata/${encodedUrn}/metadata/${modelGuid}`;
+    console.log(url);
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -187,15 +205,40 @@ async function fetchModelMetadata(accessToken) {
 }
 
 
+function getProperties(accessToken, urnOfSourceFile, guidOfViewable) {
+    const baseUrl = 'https://developer.api.autodesk.com/modelderivative/v2/designdata/';
+    const endpoint = `metadata/${guidOfViewable}/properties`;
+    const url = `${baseUrl}${encodeURIComponent(urnOfSourceFile)}/${endpoint}`;
 
-function getChildren(view){
-    console.log("Function called");
-    const parentDiv = document.getElementsByClassName('model-div');
-    console.log(parentDiv);
-    const children = parentDiv.children; 
+    const options = {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    };
 
-    children.forEach(child => {
-        console.log(child);
+    return new Promise((resolve, reject) => {
+        const req = https.request(url, options, (res) => {
+            let data = '';
+
+            // A chunk of data has been received.
+            res.on('data', (chunk) => {
+                data += chunk;
+            });
+
+            // The whole response has been received.
+            res.on('end', () => {
+                resolve(JSON.parse(data));
+                console.log(JSON.parse(data));
+            });
+        });
+
+        // Error handling for the request.
+        req.on('error', (error) => {
+            reject(error);
+        });
+
+        req.end();
     });
 }
 
@@ -249,6 +292,40 @@ function traverseInstanceTree(node) {
     children.forEach(child => {
         traverseInstanceTree(child);
     });
+}
+
+function searchAndHighlight(viewer, searchText) {
+    console.log(searchText);
+    viewer.search(searchText, function(results) {
+        if (results && results.length > 0) {
+            var part = results[0]; // Take the first result
+            var dbId = part.dbId; // Extract the dbId
+
+            console.log(results);
+            console.log(viewer.constructor.name); // Should print 'GuiViewer3D'
+            console.log(dbId, " ", part); // Should be 'function'
+
+
+
+            // Highlight the part
+            if (viewer instanceof Autodesk.Viewing.GuiViewer3D) {
+                var dbIdArray = results;
+        viewer.isolate(dbIdArray); // Optionally isolate the part
+        // viewer.select(results);
+        
+
+        
+            } else {
+                console.error('Viewer instance is not valid.');
+            }
+
+            
+        } else {
+            console.log('No parts found');
+        }
+    }, function(error) {
+        console.error('Search failed:', error);
+    }, ['Name'], { searchHidden: false });
 }
 
 
