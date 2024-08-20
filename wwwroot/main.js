@@ -1,40 +1,36 @@
 import { initViewer, loadModel, getAccessToken } from './viewer.js';
 
-let viewer1;
+const pathname = window.location.pathname;
+const parts = pathname.split('/'); // This splits the pathname into parts
+const partSearchDirty = parts[3]; // Assuming the structure is always "/3d/{partName}"
 
+const backAdrDirty = parts[2];
+const backAdrClean = decodeURI(backAdrDirty)
+console.log(backAdrDirty); 
+
+const backBtn = document.getElementById("back");
+
+backBtn.addEventListener("click", ()=>{
+    window.location.href=`/${backAdrClean}`
+})
 
 
 initViewer(document.getElementById('preview')).then(viewer => {
-    viewer1 = viewer;
 
-    // console.log(viewer);
+    // const urn = window.location.hash?.substring(1);
+
+    const urnHashmap = new Map();
+
+    urnHashmap.set('blender', 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9DQUQtMTAyMTctUmV2MDEtQmxlbmRlciUyMDMuMCUyMEFzc2VtYmx5LlNURVA');
+    urnHashmap.set('mainsupport', 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9NYWluJTIwU3VwcG9ydCUyMDEuMS5zdGVw');
+    urnHashmap.set('doors', 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9Eb29ycyUyMDEuMi5zdGVw')
     
-    const urn = window.location.hash?.substring(1);
+
+    const urn = urnHashmap.get(backAdrClean);
+
     setupModelSelection(viewer, urn);
     setupModelUpload(viewer);
-    activateFullscreen(viewer);
-
-    getAccessToken(handleAccessToken);
-
-    const accessToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjY0RE9XMnJoOE9tbjNpdk1NU0xlNGQ2VHEwUV9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiXSwiY2xpZW50X2lkIjoiSUE0MGtxV09hNUVVU29iWUpORVJPQVFKQWJhNTV0ck1oblhzVWhlYzNKbEtsdGVLIiwiaXNzIjoiaHR0cHM6Ly9kZXZlbG9wZXIuYXBpLmF1dG9kZXNrLmNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0b2Rlc2suY29tIiwianRpIjoiQUpQWkI2cmdyTTVWdXRyZ1VPNkVlaHprZzNnQUFUdWFlcjZXTHB2M1RLZW1MQkwwSlVsTmtXOWhnR1hpTmR0eSIsImV4cCI6MTcyMzA0Mjc4NH0.UIrchXe5q6bfqU7tPwd91kq0-39qmRAUdFyu-g6RGwjE4CA37DOi7BcrOy7-qAXjXSuv0BbIzcGTdlBrf6QFG_St5B_Wox4rltLdwZaVnuIShIAYSFCuQpuRDhn1qRH9qrCHEwVhZgPdFeWtJmwBZCXtAyo2I415FTam0gBvyJb_9tQ2Zt9merOLTrJ3GSzFWu4AW01ayCMCWZg8TmIU68COKeHwTBZitgsAnOriIKznFK0eme6m7OR4PmYFxPDSad8a2chfAAvureDVvZN6kM7g4Qprvs1j0KYZwBoS-sm8ADud2dXYPy1KQJupG79GCWeClWqYOqTNJ0Z3Hr0nhQ';
-    const urnOfSourceFile = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9DQUQtMTAyMTctUmV2MDEtQmxlbmRlciUyMDMuMCUyMEFzc2VtYmx5LlNURVA';
-    const guidOfViewable = 'aa85aad6-c480-4a35-9cbf-4cf5994a25ba';
-
-    getProperties(accessToken, urnOfSourceFile, guidOfViewable)
-    .then(properties => {
-        console.log('Properties:', properties);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-
-    
-
-   
-
-   
 });
-
 
 async function setupModelSelection(viewer, selectedUrn) {
     const dropdown = document.getElementById('models');
@@ -57,8 +53,6 @@ async function setupModelSelection(viewer, selectedUrn) {
 }
 
 async function setupModelUpload(viewer) {
-
-    console.log(viewer1);
 
     const upload = document.getElementById('upload');
     const input = document.getElementById('input');
@@ -126,7 +120,7 @@ async function onModelSelected(viewer, urn) {
 
 loadModel(viewer, urn).then(function (model) {
 
-    console.log(urn);
+    console.log("urn ", urn);
     // https://developer.api.autodesk.com/modelderivative/v2/regions/eu/designdata/{urn}/metadata/878e6b97-35e9-47b4-8a9c-64b5d3b5376a/properties
 
     model.getObjectTree(function onSuccessCallback(tree){
@@ -135,15 +129,11 @@ loadModel(viewer, urn).then(function (model) {
         console.log(er);
     })
 
-    
-    console.log('Model loaded:', model.getDocumentNode());
-    
+    let partSearchClean = decodeURIComponent(partSearchDirty); // Decodes %20 to spaces, %21 to "!"
 
-
-    const accessToken = 'your_access_token';
-
-    const txt1 = "OTS-10018"
-    searchAndHighlight(viewer, txt1);
+    const txt1 = "6153K88_Stainless"
+    console.log(partSearchClean);
+    searchAndHighlight(viewer, partSearchClean);
 
     
     
@@ -163,103 +153,8 @@ loadModel(viewer, urn).then(function (model) {
 }
 
 // functions to procure metadata
-function handleAccessToken(accessToken, expiresIn) {
-    console.log('Access Token:', accessToken);
-    console.log('Expires In (seconds):', expiresIn);
-
-    // You can now use the access token to make API calls
-    // For example, call another function that requires the access token
-    fetchModelMetadata(accessToken);
-}
-
-async function fetchModelMetadata(accessToken) {
-    const urn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6a3FnbHJmdG9uY29jeXVhcGtpc3M3dGdyYmd3dm14bXRxODRnbnIzeXVqcXhnenB2LWJhc2ljLWFwcC9DQUQtMTAyMTctUmV2MDEtQmxlbmRlciUyMDMuMCUyMEFzc2VtYmx5LlNURVA';
-    const modelGuid = 'aa85aad6-c480-4a35-9cbf-4cf5994a25ba';
-
-    // URL encode the urn
-    const encodedUrn = encodeURIComponent(urn);
-    console.log("Urn safe: ", encodedUrn);
-
-    const acx = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjY0RE9XMnJoOE9tbjNpdk1NU0xlNGQ2VHEwUV9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOndyaXRlIiwiZGF0YTpyZWFkIiwiYnVja2V0OmNyZWF0ZSIsImJ1Y2tldDpkZWxldGUiXSwiY2xpZW50X2lkIjoia3FHbHJmdG9OQ09DeXVBcGtJc1M3VEdyQkdXVm1YTXRxODRnbnIzeVVqUVhnWnB2IiwiaXNzIjoiaHR0cHM6Ly9kZXZlbG9wZXIuYXBpLmF1dG9kZXNrLmNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0b2Rlc2suY29tIiwianRpIjoiekpqQUdGakhxMVA2WnRGU043VlZ6aXE2RTB3MnplUWdNUmlaRDJ3RkVxenZBTzRhZ2tud2paeTB6OXFHS3JRQSIsImV4cCI6MTcyMzA0ODg5Mn0.m8VXMdjmUIRCdt7QYoI6jOnnjZEqmhkg5mftbJ5gUnLTy3zf1UqUgfGhKoAUQDcKzDNZWhTmgFVJklf445OR7AZPwc5NFbcv42hrTpX5rLzT3NcUYZlDNgLY0rW5V2neYTOK1Du_h_s537i5EpJDTgUpXRvlbigmtMhi268ND0CJ29R28PhfNkT0BJnT5Bjvmz6jOw4w5WW7bSO8h-ngJtN2e-vSiW5mLk12pYbMRWmahCLuKRe6uFWSSWngtDyscrR-dg0BG9MGUyUfyZ4S1b5m35le31SOsSdppJi1ZEUXYi1DUeazTAAGaxtgIeJwUOOyj7dzLxZgbsT2JMy2uw";
-
-    const url = `https://developer.api.autodesk.com/modelderivative/v2/designdata/${encodedUrn}/metadata/${modelGuid}`;
-    console.log(url);
-    try {
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Model Metadata:', data);
-    } catch (error) {
-        console.error('Error fetching model metadata:', error);
-    }
-}
 
 
-function getProperties(accessToken, urnOfSourceFile, guidOfViewable) {
-    const baseUrl = 'https://developer.api.autodesk.com/modelderivative/v2/designdata/';
-    const endpoint = `metadata/${guidOfViewable}/properties`;
-    const url = `${baseUrl}${encodeURIComponent(urnOfSourceFile)}/${endpoint}`;
-
-    const options = {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${accessToken}`
-        }
-    };
-
-    return new Promise((resolve, reject) => {
-        const req = https.request(url, options, (res) => {
-            let data = '';
-
-            // A chunk of data has been received.
-            res.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            // The whole response has been received.
-            res.on('end', () => {
-                resolve(JSON.parse(data));
-                console.log(JSON.parse(data));
-            });
-        });
-
-        // Error handling for the request.
-        req.on('error', (error) => {
-            reject(error);
-        });
-
-        req.end();
-    });
-}
-
-async function activateFullscreen(viewer) {
-    try {
-        await viewer.loadExtension('Autodesk.FullScreen');
-        const fullscreenExtension = viewer.getExtension('Autodesk.FullScreen');
-            const fullscreenButton = document.getElementById('explode');
-            fullscreenButton.addEventListener('click', function() {
-                fullscreenExtension.activate();
-            });
-        
-    } catch (err) {
-        console.error('Failed to load Autodesk.FullScreen extension:', err);
-    }
-}
-
-function getAllDbIds(viewer) {
-    console.log(viewer.model);
-}
- 
 
 function showNotification(message) {
     const overlay = document.getElementById('overlay');
@@ -274,26 +169,6 @@ function clearNotification() {
 }
 
 
-async function toggleExplode() {
-    const togbtn = document.getElementById("explode");
-    togbtn.onclick = () =>{
-        alert("work");
-    }
-    
-}
-
-
-function traverseInstanceTree(node) {
-    // Print information about the current node
-    console.log('Node:', node);
-    
-    // Recursively traverse child nodes
-    const children = node.getChildren();
-    children.forEach(child => {
-        traverseInstanceTree(child);
-    });
-}
-
 function searchAndHighlight(viewer, searchText) {
     console.log(searchText);
     viewer.search(searchText, function(results) {
@@ -305,15 +180,11 @@ function searchAndHighlight(viewer, searchText) {
             console.log(viewer.constructor.name); // Should print 'GuiViewer3D'
             console.log(dbId, " ", part); // Should be 'function'
 
-
-
             // Highlight the part
             if (viewer instanceof Autodesk.Viewing.GuiViewer3D) {
                 var dbIdArray = results;
         viewer.isolate(dbIdArray); // Optionally isolate the part
         // viewer.select(results);
-        
-
         
             } else {
                 console.error('Viewer instance is not valid.');
@@ -327,6 +198,3 @@ function searchAndHighlight(viewer, searchText) {
         console.error('Search failed:', error);
     }, ['Name'], { searchHidden: false });
 }
-
-
-

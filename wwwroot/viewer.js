@@ -18,11 +18,11 @@ export function initViewer(container) {
     return new Promise(function (resolve, reject) {
         Autodesk.Viewing.Initializer({ env: 'AutodeskProduction', getAccessToken }, function () {
             const config = {
-                extensions: ['Autodesk.DocumentBrowser', 'Autodesk.Viewing.Extensions.Selection']
+                extensions: ['Autodesk.DocumentBrowser']
             };
             const viewer = new Autodesk.Viewing.GuiViewer3D(container, config);
             viewer.start();
-            viewer.loadExtension('Autodesk.Viewing.Extensions.Selection');
+            // viewer.loadExtension('Autodesk.Viewing.Extensions.Selection');
 
             viewer.setTheme('light-theme');
             resolve(viewer);
