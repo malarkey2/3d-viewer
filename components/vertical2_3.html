@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/main.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/"
+          }
+        }
+      </script>
+
+      <!-- <script src="/index.js" type="module"></script> -->
+
+
+    <title>Vertical Part List</title>
+    <style>body{margin:0} 
+       
+        ul
+        {
+            list-style: none;
+            list-style-type:none;
+            padding:0px;
+            margin:0px;
+        }
+        ul > li
+        {
+           display:inline;
+            padding-left:14px;
+        }
+        .inner-table > td{
+            border: 1px solid black; /* Adds border to table cells */
+            padding: 8px;
+            text-align: left;
+
+        }
+        </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Trio Labs</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <a class="btn btn-lg btn-dark my-2 my-sm-0" href="/">Back</a>
+
+        </div>
+      </nav>
+
+
+      <div class="container-fluid p-5">
+
+
+        <h1>Vertical Parts</h1>
+        <p>To view the precise location of the part, click the view in 3D view column. Instructions to use the viewer can be found <a href="https://help.autodesk.com/view/ADSKVIEWER/ENU/?guid=ADSKVIEWER_Help_AutodeskViewerTools_html" target="_blank">here.</a> </p> 
+  
+  
+        <!-- TABLE  -->
+        <table class="table mt-3">
+          <thead>
+            <tr>
+              <th scope="col">Sub-Component</th>
+              <th scope="col">Parts/ID Tags/3D View</th>
+              <!-- <th scope="col">Quantity</th> -->
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <th scope="row">Vertical 2.3</th>
+              <td colspan="3">
+  
+                <table id="myTable" class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Quantity</th>
+                          <th>Storage Reference Tag</th>
+                          <th>3D View</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Rows will be added here dynamically -->
+                  </tbody>
+              </table>
+              
+              </td>
+              
+            </tr>
+           
+          </tbody>
+        </table>
+  
+      
+        </div>
+  
+        <!-- <script type="module" src="/index.js"></script> -->
+  
+  </body>
+<script>
+  // Data for table rows
+  
+
+  const data =[
+    { partName: "CAD-10080-Rev02-Frame SubAssembly_No doors", quantity: "x 1", partNumber: "NS-C-68-2-1" },
+    { partName: "OTS-10089-Rev01-T Slot 40mm Double Corner Gusset_5537T665", quantity: "x 2", partNumber: "NS-C-68-2-2" },
+    { partName: "OTS-10100-Rev01-40mm x 40mm x 255mm T Slot Extrusion_5537T913", quantity: "x 2", partNumber: "NS-C-68-2-3" },
+    { partName: "CAD-10087-Rev01-Material Handling SubAssembly", quantity: "x 1", partNumber: "NS-C-68-2-4" },
+    { partName: "CAD-10182-Rev01-LNS Stage Bottom LS Flag", quantity: "x 1", partNumber: "NS-C-68-2-5" },
+    { partName: "OTS-10024-Rev01-Griffin LNS Stage_SD_Height", quantity: "x 1", partNumber: "NS-C-68-2-6" },
+    { partName: "CAD-10149-Rev01-LM3 Stage Bracket", quantity: "x 1", partNumber: "NS-C-68-2-7" },
+    { partName: "CAD-10181-Rev01-LNS Stage Top LS Flag", quantity: "x 1", partNumber: "NS-C-68-2-8" },
+    { partName: "OTS-10121-Rev01-LNS and LM3 LS Optical Gate", quantity: "x 2", partNumber: "NS-C-68-2-9" },
+    { partName: "CAD-10092-Rev02-Build Platform_Retro", quantity: "x 1", partNumber: "NS-C-68-2-10" },
+    { partName: "OTS-10131-Rev01-Stainless Steel Corrosion Resistant Compression Springs_1986K78", quantity: "x 2", partNumber: "NS-C-68-2-11" },
+    { partName: "OTS-10134-Rev01-Ultra Low Profile Precision Shoulder Screw_90318A770", quantity: "x 4", partNumber: "NS-C-68-2-12" },
+    { partName: "CAD-10129-Rev01-Build Platform Catch Basin", quantity: "x 2", partNumber: "NS-C-68-2-13" },
+    { partName: "CAD-10190-Rev01-5537T705_T-Slotted Framing_5537T705", quantity: "x 2", partNumber: "NS-C-68-2-14" },
+    { partName: "CAD-10127-Rev01-Build Platform Base", quantity: "x 1", partNumber: "NS-C-68-2-15" },
+    { partName: "OTS-10004-Rev01-Newport CPP-C-6_-01", quantity: "x 2", partNumber: "NS-C-68-2-16" },
+    { partName: "CAD-10150-Rev01-Build Platform Arm Mount Bolt Retainer", quantity: "x 2", partNumber: "NS-C-68-2-17" },
+    { partName: "OTS-10136-Rev01-Stainless Steel Thin Hex Nut_90710A037", quantity: "x 4", partNumber: "NS-C-68-2-18" },
+    { partName: "OTS-10005-Rev01-Newport CPP-V-6_-01", quantity: "x 1", partNumber: "NS-C-68-2-19" },
+    { partName: "OTS-10001-Rev01-Newport-8321", quantity: "x 2", partNumber: "NS-C-68-2-20" },
+    { partName: "CAD-10132-Rev01-Build Platform VMS Shield", quantity: "x 1", partNumber: "NS-C-68-2-21" },
+    { partName: "OTS-10137-Rev01-Stainless Steel Wing Head Thumb Screw_92625A134", quantity: "x 2", partNumber: "NS-C-68-2-22" },
+    { partName: "OTS-10007-Rev01-92871A219_18-8 Stainless Steel Unthreaded Spacer_92871A219", quantity: "x 3", partNumber: "NS-C-68-2-23" },
+    { partName: "Medusa Catch Basin Splash Guard", quantity: "x 2", partNumber: "NS-C-68-2-24" },
+    { partName: "OTS-10141-Rev01-Oversized Washers_97310A129", quantity: "x 2", partNumber: "NS-C-68-2-25" },
+    { partName: "CAD-10093-Rev02-Build Platform Top", quantity: "x 1", partNumber: "NS-C-68-2-26" },
+    { partName: "CAD-10130-Rev01-Build Platform Tilt Control Splash Guard", quantity: "x 1", partNumber: "NS-C-68-2-27" },
+    { partName: "Build Platform Electronics Disconnect Mount", quantity: "x 1", partNumber: "NS-C-68-2-28" },
+    { partName: "CAD-10065-Rev01-Build Platform Mesh Retainer Top", quantity: "x 1", partNumber: "NS-C-68-2-29" },
+    { partName: "PSE530-M5_PSE530-M5", quantity: "x 1", partNumber: "NS-C-68-2-30" },
+    { partName: "PSE530-M5_PSE5018C Sensor_M5", quantity: "x 1", partNumber: "NS-C-68-2-31" },
+    { partName: "CAD-10133-Rev01-Build Platform VMS Adapter", quantity: "x 1", partNumber: "NS-C-68-2-32" },
+    { partName: "CAD-10064-Rev01-Build Platform Mesh Retainer Base", quantity: "x 1", partNumber: "NS-C-68-2-33" },
+    { partName: "OTS-10003-Rev01-Newport CPP-F-6_-01", quantity: "x 1", partNumber: "NS-C-68-2-34" },
+    { partName: "PSE530-M5_PSE530-M5_1", quantity: "x 1", partNumber: "NS-C-68-2-35" },
+    { partName: "PSE530-M5_PSE5018C Sensor_M5", quantity: "x 1", partNumber: "NS-C-68-2-36" },
+    { partName: "CAD-10131-Rev01-Build Platform Mounting Arm", quantity: "x 1", partNumber: "NS-C-68-2-37" },
+    { partName: "CAD-10128-Rev01-Build Platform Tilt Control Base", quantity: "x 1", partNumber: "NS-C-68-2-38" },
+    { partName: "CAD-10189-Rev01-Build Surface Retro Adapter", quantity: "x 1", partNumber: "NS-C-68-2-39" },
+    { partName: "CAD-10090-Rev01-Build Platform Vacuum Manifold", quantity: "x 1", partNumber: "NS-C-68-2-40" },
+    { partName: "CAD-10136-Rev01-Vertical Motion Stage Bracket", quantity: "x 1", partNumber: "NS-C-68-2-41" },
+    { partName: "LNS-100-BS-M-M-P-0-01-EXPORT REV 1", quantity: "x 1", partNumber: "NS-C-68-2-42" },
+    { partName: "1000002-1-1", quantity: "x 1", partNumber: "NS-C-68-2-43" },
+    { partName: "1000006(file_export7)-1", quantity: "x 1", partNumber: "NS-C-68-2-44" },
+    { partName: "1000003-1", quantity: "x 1", partNumber: "NS-C-68-2-45" },
+    { partName: "1000007-1", quantity: "x 1", partNumber: "NS-C-68-2-46" },
+    { partName: "1000001-1", quantity: "x 1", partNumber: "NS-C-68-2-47" },
+    { partName: "1000005(file_export6)-1", quantity: "x 1", partNumber: "NS-C-68-2-48" },
+    { partName: "CAD-10140-Rev01-Splash Guard Front", quantity: "x 1", partNumber: "NS-C-68-2-49"}
+]
+
+
+
+
+
+
+  const tbody = document.querySelector('#myTable tbody');
+
+  data.forEach(item => {
+      // Create a new row
+      const tr = document.createElement('tr');
+
+      // Create and append the description cell
+      const tdDescription = document.createElement('td');
+      tdDescription.textContent = item.partName;
+      tr.appendChild(tdDescription);
+
+      // Create and append the quantity cell
+      const tdQuantity = document.createElement('td');
+      tdQuantity.textContent = item.quantity;
+      tr.appendChild(tdQuantity);
+
+      // Create and append the part number cell
+      const tdPartNumber = document.createElement('td');
+      tdPartNumber.textContent = item.partNumber;
+      tr.appendChild(tdPartNumber);
+
+      // Create and append the action cell with a link
+      const tdAction = document.createElement('td');
+      const link = document.createElement('a');
+      link.href = `/3d/vertical/${item.partName}`; // Encoding the URL component
+      link.textContent = 'View';
+      link.classList.add('btn'); // Adding the 'btn' class for styling
+      tdAction.appendChild(link);
+      tr.appendChild(tdAction);
+
+      // Append the row to the table body
+      tbody.appendChild(tr);
+  });
+</script>
+</html>

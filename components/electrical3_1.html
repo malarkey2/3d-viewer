@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/main.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/"
+          }
+        }
+      </script>
+
+      <!-- <script src="/index.js" type="module"></script> -->
+
+
+    <title>Electrical Part List</title>
+    <style>body{margin:0} 
+       
+        ul
+        {
+            list-style: none;
+            list-style-type:none;
+            padding:0px;
+            margin:0px;
+        }
+        ul > li
+        {
+           display:inline;
+            padding-left:14px;
+        }
+        .inner-table > td{
+            border: 1px solid black; /* Adds border to table cells */
+            padding: 8px;
+            text-align: left;
+
+        }
+        </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Trio Labs</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="btn btn-lg btn-dark my-2 my-sm-0" href="/">Back</a>
+
+        </div>
+      </nav>
+
+
+      <div class="container-fluid p-5">
+
+
+        <h1>Electrical Panel Parts</h1>
+        <p>To view the precise location of the part, click the view in 3D view column. Instructions to use the viewer can be found <a href="https://help.autodesk.com/view/ADSKVIEWER/ENU/?guid=ADSKVIEWER_Help_AutodeskViewerTools_html" target="_blank">here.</a> </p> 
+  
+  
+        <!-- TABLE  -->
+        <table class="table mt-3">
+          <thead>
+            <tr>
+              <th scope="col">Sub-Component</th>
+              <th scope="col">Parts/ID Tags/3D View</th>
+              <!-- <th scope="col">Quantity</th> -->
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <th scope="row">Electrical 3.1,2,3</th>
+              <td colspan="3">
+  
+                <table id="myTable" class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Quantity</th>
+                          <th>Storage Reference Tag</th>
+                          <th>3D View</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Rows will be added here dynamically -->
+                  </tbody>
+              </table>
+              
+              </td>
+              
+            </tr>
+           
+          </tbody>
+        </table>
+  
+      
+        </div>
+  
+        <!-- <script type="module" src="/index.js"></script> -->
+  
+  </body>
+<script>
+  // Data for table rows
+  
+
+  const data =[
+    { partName: "CAD-10081-Rev02-Main Assembly", quantity: "x 1", partNumber: "NS-C-67-2-1" },
+    { partName: "CAD-10188-Rev01-Electrical Panel SubAssembly", quantity: "x 1", partNumber: "NS-C-67-2-2" },
+    { partName: "Electronics - TERMINAL BLOCK WDU 2.5", quantity: "x 56", partNumber: "NS-C-67-2-3" },
+    { partName: "Electronics - strato ups RPi_Predeterminado", quantity: "x 2", partNumber: "NS-C-67-2-4" },
+    { partName: "OTS-10124-Rev01-DIN Rail 1m_4", quantity: "x 1", partNumber: "NS-C-67-2-5" },
+    { partName: "OTS-101241-Rev01-DIN Rail 1m.stp_4", quantity: "x 1", partNumber: "NS-C-67-2-6" },
+    { partName: "0801733_NS_35_7.5_PERF_2000MM-select.stp", quantity: "x 1", partNumber: "NS-C-67-3-1" },
+    { partName: "Electronics - 8 port ethernet switch (wrong one)", quantity: "x 4", partNumber: "NS-C-67-3-2" },
+    { partName: "Electronics - Newport-8742", quantity: "x 1", partNumber: "NS-C-67-3-3" },
+    { partName: "Electronics - MeanWell NDR 75-24_Predeterminado", quantity: "x 1", partNumber: "NS-C-67-3-4" },
+    { partName: "Electronics - 409510_escon_50_5", quantity: "x 1", partNumber: "NS-C-67-3-5" },
+    { partName: "OTS-10124-Rev01-DIN Rail 1m_1", quantity: "x 1", partNumber: "NS-C-67-3-6" },
+    { partName: "OTS-101241-Rev01-DIN Rail 1m.stp_1", quantity: "x 1", partNumber: "NS-C-67-3-7" },
+    { partName: "0801733_NS_35_7.5_PERF_2000MM-select.stp", quantity: "x 1", partNumber: "NS-C-67-4-1" },
+    { partName: "Electronics - 4PortIndustrialUSB3HubStarTech (wrong one)", quantity: "x 1", partNumber: "NS-C-67-4-2" },
+    { partName: "Electronics - dpp240-xx-1 Galil Power Supply", quantity: "x 1", partNumber: "NS-C-67-4-3" },
+    { partName: "Electronics - NDR-240", quantity: "x 2", partNumber: "NS-C-67-4-4" },
+    { partName: "Electronics - Ethernet to RS485 Module", quantity: "x 2", partNumber: "NS-C-67-4-5" },
+    { partName: "Electronics - NDR-480-24", quantity: "x 1", partNumber: "NS-C-67-4-6" },
+    { partName: "Electronics - mdr-40-12", quantity: "x 1", partNumber: "NS-C-67-5-1" },
+    { partName: "OTS-10124-Rev01-DIN Rail 1m_2", quantity: "x 1", partNumber: "NS-C-67-5-2" },
+    { partName: "OTS-101241-Rev01-DIN Rail 1m.stp_2", quantity: "x 1", partNumber: "NS-C-67-5-3" },
+    { partName: "0801733_NS_35_7.5_PERF_2000MM-select.stp", quantity: "x 1", partNumber: "NS-C-67-5-4" },
+    { partName: "Electronics - NDR-120-3D", quantity: "x 3", partNumber: "NS-C-67-5-5" },
+    { partName: "Electronics - DMC4143_02_model-box Galil", quantity: "x 1", partNumber: "NS-C-67-5-6" },
+    { partName: "OTS-10124-Rev01-DIN Rail 1m_5", quantity: "x 1", partNumber: "NS-C-67-6-1" },
+    { partName: "OTS-101241-Rev01-DIN Rail 1m.stp_5", quantity: "x 1", partNumber: "NS-C-67-6-2" },
+    { partName: "0801733_NS_35_7.5_PERF_2000MM-select.stp", quantity: "x 1", partNumber: "NS-C-67-6-3" },
+    { partName: "OTS-10124-Rev01-DIN Rail 1m", quantity: "x 1", partNumber: "NS-C-67-6-4" },
+    { partName: "OTS-101241-Rev01-DIN Rail 1m.stp", quantity: "x 1", partNumber: "NS-C-67-6-5" },
+    { partName: "0801733_NS_35_7.5_PERF_2000MM-select.stp", quantity: "x 1", partNumber: "NS-C-67-6-6" },
+    { partName: "Electronics - ADAM-5000_TCP_SLDPRT", quantity: "x 1", partNumber: "NS-C-67-7-1" },
+    { partName: "OTS-10124-Rev01-DIN Rail 1m_3", quantity: "x 1", partNumber: "NS-C-67-7-2" },
+    { partName: "OTS-101241-Rev01-DIN Rail 1m.stp_3", quantity: "x 1", partNumber: "NS-C-67-7-3" },
+    { partName: "0801733_NS_35_7.5_PERF_2000MM-select.stp", quantity: "x 1", partNumber: "NS-C-67-7-4" },
+    { partName: "Electronics - 7578K76_Slotted Wire Duct with Snap-on Cover_7578K76", quantity: "x 1", partNumber: "NS-C-67-7-5" },
+    { partName: "CAD-10187-Rev01-Electrical Panel Steel Sheet", quantity: "x 1", partNumber: "NS-C-67-7-6" }
+]
+
+
+
+
+
+
+
+  const tbody = document.querySelector('#myTable tbody');
+
+  data.forEach(item => {
+      // Create a new row
+      const tr = document.createElement('tr');
+
+      // Create and append the description cell
+      const tdDescription = document.createElement('td');
+      tdDescription.textContent = item.partName;
+      tr.appendChild(tdDescription);
+
+      // Create and append the quantity cell
+      const tdQuantity = document.createElement('td');
+      tdQuantity.textContent = item.quantity;
+      tr.appendChild(tdQuantity);
+
+      // Create and append the part number cell
+      const tdPartNumber = document.createElement('td');
+      tdPartNumber.textContent = item.partNumber;
+      tr.appendChild(tdPartNumber);
+
+      // Create and append the action cell with a link
+      const tdAction = document.createElement('td');
+      const link = document.createElement('a');
+      link.href = `/3d/electrical/${item.partName}`; // Encoding the URL component
+      link.textContent = 'View';
+      link.classList.add('btn'); // Adding the 'btn' class for styling
+      tdAction.appendChild(link);
+      tr.appendChild(tdAction);
+
+      // Append the row to the table body
+      tbody.appendChild(tr);
+  });
+</script>
+</html>

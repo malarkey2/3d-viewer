@@ -24,8 +24,13 @@ initViewer(document.getElementById('preview')).then(viewer => {
     urnHashmap.set('blender', 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9DQUQtMTAyMTctUmV2MDEtQmxlbmRlciUyMDMuMCUyMEFzc2VtYmx5LlNURVA');
     urnHashmap.set('mainsupport', 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9NYWluJTIwU3VwcG9ydCUyMDEuMS5zdGVw');
     urnHashmap.set('doors', 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9Eb29ycyUyMDEuMi5zdGVw')
-    
-
+    urnHashmap.set('gantryprojector', "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9YWSUyMEdhbnRyeSUyMGFuZCUyMFByb2plY3RvciUyMDIuMS5zdGVw")
+    urnHashmap.set('carriage', "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9MTTMlMjAtJTIwQ2FycmlhZ2Uuc3RlcA")
+    urnHashmap.set('vertical', "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9MTlMlMjAtJTIwVmVydGljYWwuc3RlcA")
+    urnHashmap.set('electrical', "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9FbGVjdHJpYyUyMFBhbmVsLnN0ZXA")
+    urnHashmap.set('fumebox', 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9GdW1lJTIwQm94JTIwU3lzdGVtLnN0ZXA')
+    urnHashmap.set('blendrails', "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9CbGVuZHJhaWxzXy5zdGVw")
+    urnHashmap.set('dogbowl', "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aWE0MGtxd29hNWV1c29ieWpuZXJvYXFqYWJhNTV0cm1obnhzdWhlYzNqbGtsdGVrLWJhc2ljLWFwcC9Eb2dib3dsLnN0ZXA")
     const urn = urnHashmap.get(backAdrClean);
 
     setupModelSelection(viewer, urn);

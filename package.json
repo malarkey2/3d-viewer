@@ -20,6 +20,7 @@
     "express": "^4.19.2",
     "express-formidable": "^1.2.0",
     "nodemon": "^3.1.4",
+    "sqlite3": "^5.1.7",
     "three": "^0.167.1"
   }
 }

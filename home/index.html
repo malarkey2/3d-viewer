@@ -30,13 +30,6 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Pricing</a>
-            </div>
-          </div>
         </div>
       </nav>
 
@@ -55,7 +48,6 @@
             <th scope="col">Subsystem</th>
             <th scope="col">Components List</th>
             <th scope="col">Link to Parts</th>
-            <th scope="col">3D View</th>
           </tr>
         </thead>
         <tbody>
@@ -65,19 +57,15 @@
                 <ol>
                     <li>Main Support</li>
                     <li>Doors</li>
-                    <li>Plastic Panels</li>
-                    <li>Electrical Metal Panel</li>
+                  
                 </ol>
-
+                <p>Floor/Roof Boards - It is useful to add the vaccuum tanks before the floorboard is installed. The roof board is installed in one of the the last steps</p>
             </td>
             <td>
               <button id="mainsupport-list" type="button" class="btn btn-outline-dark">Main Support</button>
               <button id="doors-list" type="button" class="btn btn-outline-dark">Doors</button>
-              <button type="button" class="btn btn-outline-dark">Plastic Panels</button>
-              <button id="" type="button" class="btn btn-outline-dark">Electric Metal Panel</button>
 
             </td>
-            <td>@mdo</td>
           </tr>
           <tr>
             <th scope="row">2 - Motion Stages</th>
@@ -87,51 +75,53 @@
                 <li>LM3 - Carriage (for slot die arm), motion stage, limit switches</li>
                 <li>LNS (vertical) bracket, stage,  limit switches</li>
                 <li>Misc - Install adaptor plate, vertical splash guard, and build platform arm on LNS (vertical).</li>
-                <li>Wiring - Complete wiring all motion stages</li>
             </ol>
+            <p>The miscelleneous tasks can be done alongside the main motion stages. Build platform it to be assembled outside the printer</p>
             </td>
-            <td>Thornton</td>
+            <td> <button id="gantryprojector-list" type="button" class="btn btn-outline-dark">XY - Gantry, Plates & Projector</button>
+              <button id="carriage-list" type="button" class="btn btn-outline-dark">LM3 - Carriage, Slot Die Arm, etc.</button>
+              <button id="vertical-list" type="button" class="btn btn-outline-dark">LNS - (vertical), splash guards, and build platform</button>
             <td class="blender"></td>
           </tr>
           <tr>
             <th scope="row">3 - Electrical Panel</th>
             <td>
               <ol>
-                <li>Mouning Support - Cut and install DIN Rails + Gray cable managery</li>
+                <li>Mounting Support - Cut and install DIN Rails + Gray cable managery</li>
                 <li>Access Holes - Mount cable ducts, install grommets</li>
                 <li>Electronic Modules - Wire electronics modules. Power, ethernet, usb, A/D I/O, etc
                 </li>
                 <li>Vaccuum Boards - Develop and Wire</li>
             </ol>
+            <p>Reference documentation extensively for wiring tasks. Install most recent vaccuum board. The 3D View is designed to demonstrate positioning of DIN rails and electronic modules.</p>
             </td>
-            <td>@twitter</td>
+            <td><button id="electrical-list" type="button" class="btn btn-outline-dark">Electrical Panel - Physical</button>
+              <button id="electrical-embed" type="button" class="btn btn-outline-dark">Electrical Panel - Wiring</button></td>
+          </td>
           </tr>
           <tr>
             <th scope="row">4 - Individual Components</th>
             <td>
                 <ol>
-              <li>Slot Die System</li>
-              <li>Splash Guarding</li>
+              <li>Vaccuum System/Chiller Loop/Air Filter</li>
+              <li>Dogbowl</li>
               <li>Fume Box</li>
-              <li>Blender + Slurry Pump + Sic Meter</li>
+              <li>Blender, Slurry Pump, Sic Meter</li>
               <li>Cameras</li>
-              
-              <li>Projector Chiller</li>
               </ol>
+              <p>No 3D View available for Vaccuum System/Cameras/Chiller - Reference Documentation and other Machines.</p>
           </td>
             <td>
-              <button type="button" class="btn btn-outline-dark">Slot Die System</button>
-              <button type="button" class="btn btn-outline-dark">Splash Guarding</button>
-              <button type="button" class="btn btn-outline-dark">Fume Box</button>
-              <button id="blender-list" type="button" class="btn btn-outline-dark">Blender + Slurry Pump + Sic Meter</button>
+              <button id="vaccuum-embed" type="button" class="btn btn-outline-dark">Vaccuum System</button>
+              <button id="dogbowl-list" type="button" class="btn btn-outline-dark">Dogbowl</button>
+              <button id="fumebox-list" type="button" class="btn btn-outline-dark">Fume Box</button>
+              <button id="blender-list" type="button" class="btn btn-outline-dark">Blender</button>
+              <button id="blendrails-list" type="button" class="btn btn-outline-dark">Blender + Slurry Pump Mounts</button>
+              <button id="cameras-embed" type="button" class="btn btn-outline-dark">Cameras</button>
 
             </td>
           </tr>
-          <tr>
-            <th scope="row">5 - Individual Components</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+         
         </tbody>
       </table>
 

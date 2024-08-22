@@ -24,6 +24,34 @@ app.get('/doors', (req, res) => {
     res.sendFile(path.join(__dirname, 'components', 'doors1_2.html'));
 });
 
+app.get('/gantryprojector', (req, res) => {
+    res.sendFile(path.join(__dirname, 'components', 'gantry_projector2_1.html'));
+});
+
+app.get('/carriage', (req, res) => {
+    res.sendFile(path.join(__dirname, 'components', 'carriage2_2.html'));
+});
+
+app.get('/vertical', (req, res) => {
+    res.sendFile(path.join(__dirname, 'components', 'vertical2_3.html'));
+});
+
+app.get('/electrical', (req, res) => {
+    res.sendFile(path.join(__dirname, 'components', 'electrical3_1.html'));
+});
+
+app.get('/fumebox', (req, res) => {
+    res.sendFile(path.join(__dirname, 'components', 'fumebox4_1.html'));
+});
+
+app.get('/blendrails', (req, res) => {
+    res.sendFile(path.join(__dirname, 'components', 'blendrails4_2.html'));
+});
+
+app.get('/dogbowl', (req, res) => {
+    res.sendFile(path.join(__dirname, 'components', 'dogbowl4_3.html'));
+});
+
 app.get('/3d/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'wwwroot', 'index.html'));
 });
