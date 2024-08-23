@@ -111,31 +111,109 @@
   // Data for table rows
   
 
-  const data = [
-    { partName: 'AQME_40-4040_20221121114026', quantity: 'x 2', partNumber: 'NB-D-60-1-J' },
-    { partName: 'AQME_40-4332_20221121094016', quantity: 'x 2', partNumber: 'NB-D-61-1-K' },
-    { partName: 'AQME_40-4334_20221121093321', quantity: 'x 4', partNumber: 'NB-D-62-1-L' },
-    { partName: 'AQME_40-4080_20221121092720', quantity: 'x 2', partNumber: 'NB-D-60-1-M' },
-    { partName: 'AQME_65-4509_20221121123244', quantity: 'x 4', partNumber: 'NB-D-61-1-N' },
-    { partName: 'AQME_40-4040_20221121093210', quantity: 'x 2', partNumber: 'NB-D-62-1-O' },
-    { partName: 'AQME_40-4040_20221121100532', quantity: 'x 2', partNumber: 'NB-D-60-1-P' },
-    { partName: 'AQME_2327_20221121095221', quantity: 'x 6', partNumber: 'NB-D-61-1-Q' },
-    { partName: 'AQME_40-4334_20221121094123', quantity: 'x 2', partNumber: 'NB-D-60-1-S' },
-    { partName: 'AQME_40-4080_20221121091338', quantity: 'x 4', partNumber: 'NB-D-61-1-T' },
-    { partName: 'AQME_40-8080_20221121084813', quantity: 'x 4', partNumber: 'NB-D-62-1-U' },
-    { partName: 'AQME_9000_20221121122954', quantity: 'x 2', partNumber: 'NB-D-60-1-V' },
-    { partName: 'AQME_40-4338_20221121093752', quantity: 'x 2', partNumber: 'NB-D-61-1-W' },
-    { partName: 'AQME_40-4080_20221121091408', quantity: 'x 4', partNumber: 'NB-D-62-1-X' },
-    { partName: 'AQME_40-4080_20221121085521', quantity: 'x 2', partNumber: 'NB-D-60-1-Y' },
-    { partName: 'AQME_40-4040_20221121093951', quantity: 'x 2', partNumber: 'NB-D-61-1-Z' },
-    { partName: 'AQME_40-4334_20221121093253', quantity: 'x 2', partNumber: 'NB-D-62-1-A' },
-    { partName: 'AQME_40-8080_20221121093845', quantity: 'x 2', partNumber: 'NB-D-60-1-B' },
-    { partName: 'AQME_40-4040_20221121094057', quantity: 'x 2', partNumber: 'NB-D-61-1-C' },
-    { partName: 'AQME_40-4336_20221121093709', quantity: 'x 2', partNumber: 'NB-D-62-1-D' },
-    { partName: 'AQME_40-4040_20221121093011', quantity: 'x 1', partNumber: 'NB-D-60-1-E' },
-    { partName: 'AQME_40-4080_20221121092818', quantity: 'x 1', partNumber: 'NB-D-61-1-F' },
-    { partName: 'AQME_40-4080_20221121085256', quantity: 'x 1', partNumber: 'NB-D-62-1-G' }
+  const data =[
+    {
+        partName: "AQME_40-4332_20221121094016",
+        quantity: "x 2",
+        partNumber: "NS-C-69-2-1"
+    },
+    {
+        partName: "AQME_40-4334_20221121093321",
+        quantity: "x 4",
+        partNumber: "NS-C-69-2-2"
+    },
+    {
+        partName: "AQME_40-4080_20221121092720",
+        quantity: "x 2",
+        partNumber: "NS-C-69-1-M"
+    },
+    {
+        partName: "AQME_40-4040_20221121093210",
+        quantity: "x 2",
+        partNumber: "NS-C-69-1-H"
+    },
+    {
+        partName: "AQME_2327_20221121095221",
+        quantity: "x 6",
+        partNumber: "NS-C-69-2-3"
+    },
+    {
+        partName: "AQME_40-4334_20221121094123",
+        quantity: "x 2",
+        partNumber: "NS-C-69-2-4"
+    },
+    {
+        partName: "AQME_40-4080_20221121091338",
+        quantity: "x 4",
+        partNumber: "NS-C-69-1-M"
+    },
+    {
+        partName: "AQME_40-8080_20221121084813",
+        quantity: "x 4",
+        partNumber: "NS-C-69-1-N"
+    },
+    {
+        partName: "AQME_40-4338_20221121093752",
+        quantity: "x 2",
+        partNumber: "NS-C-69-2-5"
+    },
+    {
+        partName: "AQME_40-4080_20221121091408",
+        quantity: "x 4",
+        partNumber: "NS-C-69-1-K"
+    },
+    {
+        partName: "AQME_40-4080_20221121085521",
+        quantity: "x 2",
+        partNumber: "NS-C-69-1-L"
+    },
+    {
+        partName: eBom-FreeParts,
+        quantity: "x 1",
+        partNumber: "NS-C-69-1-NA"
+    },
+    {
+        partName: "AQME_40-4040_20221121093951",
+        quantity: "x 2",
+        partNumber: "NS-C-69-1-J"
+    },
+    {
+        partName: "AQME_40-4334_20221121093253",
+        quantity: "x 2",
+        partNumber: "NS-C-69-2-6"
+    },
+    {
+        partName: "AQME_40-8080_20221121093845",
+        quantity: "x 2",
+        partNumber: "NS-C-69-1-O"
+    },
+    {
+        partName: "AQME_40-4040_20221121094057",
+        quantity: "x 2",
+        partNumber: "NS-C-69-1-I"
+    },
+    {
+        partName: "AQME_40-4336_20221121093709",
+        quantity: "x 2",
+        partNumber: "NS-C-69-2-7"
+    },
+    {
+        partName: "AQME_40-4040_20221121093011",
+        quantity: "x 1",
+        partNumber: "NS-C-69-1-E"
+    },
+    {
+        partName: "AQME_40-4080_20221121092818",
+        quantity: "x 1",
+        partNumber: "NS-C-69-1-K"
+    },
+    {
+        partName: "AQME_40-4080_20221121085256",
+        quantity: "x 1",
+        partNumber: "NS-C-69-1-X"
+    }
 ]
+
 
 
 

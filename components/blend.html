@@ -110,29 +110,118 @@
 <script>
   // Data for table rows
   const data = [
-    { partName: '98269A450_Black-Oxide 18-8 Stainless Steel Washer_98269A450', quantity: 'x 1', partNumber: 'NS-A-64-1-1' },
-    { partName: 'CAD-10224-Rev01-Blender 3.0 Shaft', quantity: 'x 1', partNumber: 'NS-A-64-1-2' },
-    { partName: 'CAD-10223-Rev01-Flanged Linear Bearing Spacer', quantity: 'x 1', partNumber: 'NS-A-64-1-3' },
-    { partName: 'OTS-10094-Rev01-Horizontal Mount Flanged Bearing for 80mm T Slot Rail_5537T645', quantity: 'x 1', partNumber: 'NS-A-64-1-4' },
-    { partName: '9263K718_Chemical-Resistant Viton Fluoroelastomer O-Ring_9263K718', quantity: 'x 1', partNumber: 'NS-A-64-1-5' },
-    { partName: 'CAD-10226-Rev01-Blender 3.0 Shaft Splash Guard', quantity: 'x 1', partNumber: 'NS-A-64-1-6' },
-    { partName: 'CAD-10219-Rev01-Blender 3.0 Head', quantity: 'x 1', partNumber: 'NS-A-64-1-7' },
-    { partName: '9845T104_Vibrate-Damping Precision Flexible Shaft Coupling_9845T104', quantity: 'x 1', partNumber: 'NS-A-64-1-8' },
-    { partName: 'OST-10028-Rev01-Sealed Limit Switch_7282K11', quantity: 'x 1', partNumber: 'NS-A-64-1-9' },
-    { partName: '9845T11_Durometer 98A Spider for 3 4 OD for Clamping Vibrate-Damping Precision Flexible Shaft Coupling_9845T11', quantity: 'x 1', partNumber: 'NS-A-64-1-10' },
-    { partName: '6153K88_Stainless Steel Ball Bearing_6153K88', quantity: 'x 2', partNumber: 'NS-A-64-1-11' },
-    { partName: '3014K13_Threaded Shaft Collar_3014K13', quantity: 'x 1', partNumber: 'NS-A-64-1-12' },
-    { partName: 'CAD-10218-Rev01-Blender 3.0 Motor Mount', quantity: 'x 1', partNumber: 'NS-A-64-1-13' },
-    { partName: 'CAD-10222-Rev01-Blender 3.0 Mounting Plate', quantity: 'x 1', partNumber: 'NS-A-64-1-14' },
-    { partName: 'CAD-10220-Rev01-Blender 3.0 Motor Cover', quantity: 'x 1', partNumber: 'NS-A-64-1-15' },
-    { partName: 'CAD-10221-Rev01-Blender 3.0 Beaker Base', quantity: 'x 1', partNumber: 'NS-A-64-1-16' },
-    { partName: '98541A116_External Retaining Ring_98541A116', quantity: 'x 1', partNumber: 'NS-A-64-1-17' },
-    { partName: 'OTS-10018-Rev01-Saw Blade Mixer', quantity: 'x 1', partNumber: 'NS-A-64-1-18' },
-    { partName: 'OTS-10020-Rev01-Maxon Blender Motor', quantity: 'x 1', partNumber: 'NS-A-64-1-19' },
-    { partName: 'OTS-10093-Rev02-80mm x 40mm Blender T Slot Extrusion', quantity: 'x 1', partNumber: 'NS-A-64-1-20' },
-    { partName: 'OTS-10049-Rev01-Hand Brake for 40mm Single and 80mm High Double Sleeve Bearing Carriage for T-Slotted Framing_60585K99', quantity: 'x 1', partNumber: 'NS-A-64-1-21' },
-    { partName: '9845T106_Vibrate-Damping Precision Flexible Shaft Coupling_9845T106', quantity: 'x 1', partNumber: 'NS-A-64-1-22' }
-];
+    {
+        partName: "98269A450_Black-Oxide 18-8 Stainless Steel Washer_98269A450",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-1"
+    },
+    {
+        partName: "CAD-10224-Rev01-Blender 3.0 Shaft",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-2"
+    },
+    {
+        partName: "CAD-10223-Rev01-Flanged Linear Bearing Spacer",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-3"
+    },
+    {
+        partName: "OTS-10094-Rev01-Horizontal Mount Flanged Bearing for 80mm T Slot Rail_5537T645",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-4"
+    },
+    {
+        partName: "9263K718_Chemical-Resistant Viton Fluoroelastomer O-Ring_9263K718",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-5"
+    },
+    {
+        partName: "CAD-10226-Rev01-Blender 3.0 Shaft Splash Guard",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-6"
+    },
+    {
+        partName: "CAD-10219-Rev01-Blender 3.0 Head",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-7"
+    },
+    {
+        partName: "9845T104_Vibrate-Damping Precision Flexible Shaft Coupling_9845T104",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-8"
+    },
+    {
+        partName: "OST-10028-Rev01-Sealed Limit Switch_7282K11",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-9"
+    },
+    {
+        partName: "9845T11_Durometer 98A Spider for 3 4 OD for Clamping Vibrate-Damping Precision Flexible Shaft Coupling_9845T11",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-10"
+    },
+    {
+        partName: "6153K88_Stainless Steel Ball Bearing_6153K88",
+        quantity: "x 2",
+        partNumber: "NS-A-66-1-11"
+    },
+    {
+        partName: "3014K13_Threaded Shaft Collar_3014K13",
+        quantity: "x 1",
+        partNumber: "NS-A-66-1-12"
+    },
+    {
+        partName: "CAD-10218-Rev01-Blender 3.0 Motor Mount",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-1"
+    },
+    {
+        partName: "CAD-10222-Rev01-Blender 3.0 Mounting Plate",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-2"
+    },
+    {
+        partName: "CAD-10220-Rev01-Blender 3.0 Motor Cover",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-3"
+    },
+    {
+        partName: "CAD-10221-Rev01-Blender 3.0 Beaker Base",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-4"
+    },
+    {
+        partName: "98541A116_External Retaining Ring_98541A116",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-5"
+    },
+    {
+        partName: "OTS-10018-Rev01-Saw Blade Mixer",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-6"
+    },
+    {
+        partName: "OTS-10020-Rev01-Maxon Blender Motor",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-7"
+    },
+    {
+        partName: "OTS-10093-Rev02-80mm x 40mm Blender T Slot Extrusion",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-8"
+    },
+    {
+        partName: "OTS-10049-Rev01-Hand Brake for 40mm Single and 80mm High Double Sleeve Bearing Carriage for T-Slotted Framing_60585K99",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-9"
+    },
+    {
+        partName: "9845T106_Vibrate-Damping Precision Flexible Shaft Coupling_9845T106",
+        quantity: "x 1",
+        partNumber: "NS-A-66-2-10"
+    }
+]
+
 
 
 
