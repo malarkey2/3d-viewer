@@ -10,6 +10,9 @@ const ossClient = new OssClient(sdk);
 const modelDerivativeClient = new ModelDerivativeClient(sdk);
 
 const service = module.exports = {};
+console.log(APS_CLIENT_ID);
+console.log(APS_CLIENT_SECRET);
+
 
 service.getInternalToken = async () => {
     const credentials = await authenticationClient.getTwoLeggedToken(APS_CLIENT_ID, APS_CLIENT_SECRET, [
